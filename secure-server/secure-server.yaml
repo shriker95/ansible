@@ -26,3 +26,17 @@
       name: fail2ban
       enabled: yes
       state: started
+
+  - name: Install auto updates
+    apt:
+      pkg:
+      - unattended-upgrades
+      - apt-listchanges
+      update_cache: yes
+      state: present
+  
+  - name: Enable auto updates
+    service:
+      name: unattended-upgrades
+      enabled: yes
+      state: started 
